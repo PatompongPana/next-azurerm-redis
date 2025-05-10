@@ -250,6 +250,22 @@ EOT
   default     = {}
 }
 
+variable "authentication_enabled" {
+  type    = bool
+  default = true
+}
+
+variable "active_directory_authentication_enabled" {
+  type    = bool
+  default = false
+}
+
+variable "data_persistence_authentication_method" {
+  type        = string
+  description = "Preferred auth method to communicate to storage account used for data persistence. Possible values: SAS or ManagedIdentity."
+  default     = null
+}
+
 #
 # Private Endpoint
 #
@@ -303,14 +319,4 @@ List of diagnotic settings for this resource.
 EOT
   type        = list(any)
   default     = []
-}
-
-variable "authentication_enabled" {
-  type    = bool
-  default = true
-}
-
-variable "active_directory_authentication_enabled" {
-  type    = bool
-  default = false
 }

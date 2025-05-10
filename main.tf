@@ -31,6 +31,7 @@ resource "azurerm_redis_cache" "main" {
     authentication_enabled                  = var.authentication_enabled
     active_directory_authentication_enabled = var.active_directory_authentication_enabled
     notify_keyspace_events = var.redis_config_notify_keyspace_events
+    data_persistence_authentication_method = var.data_persistence_authentication_method
 
     aof_backup_enabled              = var.sku_name == "Premium" ? var.redis_config_aof_backup_enabled : null
     aof_storage_connection_string_0 = var.redis_config_aof_storage_connection_string_0

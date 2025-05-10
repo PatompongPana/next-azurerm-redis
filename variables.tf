@@ -304,3 +304,15 @@ EOT
   type        = list(any)
   default     = []
 }
+
+variable "authentication_enabled" {
+  description = "Enable Redis authentication"
+  type        = bool
+  default     = false
+}
+
+variable "active_directory_authentication_enabled" {
+  description = "Enable Active Directory authentication"
+  type        = bool
+  default     = false
+}

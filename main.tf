@@ -28,6 +28,8 @@ resource "azurerm_redis_cache" "main" {
   subnet_id            = var.sku_name == "Premium" ? var.subnet_id : null
 
   redis_configuration {
+    authentication_enabled             = var.authentication_enabled
+    active_directory_authentication_enabled = var.active_directory_authentication_enabled
     authentication_enabled = var.redis_config_enable_authentication
     notify_keyspace_events = var.redis_config_notify_keyspace_events
 

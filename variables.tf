@@ -306,13 +306,11 @@ EOT
 }
 
 variable "authentication_enabled" {
-  description = "Enable Redis authentication"
-  type        = bool
-  default     = false
+  type    = bool
+  default = true
 }
 
 variable "active_directory_authentication_enabled" {
-  description = "Enable Active Directory authentication"
-  type        = bool
-  default     = false
+  type    = bool
+  default = false
 }

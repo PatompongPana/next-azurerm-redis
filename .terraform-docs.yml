@@ -1,0 +1,51 @@
+# .terraform-docs.yml
+content: |-
+  {{ .Header }}
+
+  ## Release Note
+
+  - v0.0.5
+    - Upgrade diagnostic settings to support multiple rules and destination with retention policy
+  - v0.1.0
+    - Support AzureRM 3.0+
+    - Add
+      - `private_static_ip_address`
+      - `tenant_settings`
+      - `subnet_id`
+      - `redis_config_*`
+      - `identity_*`
+      - `patch_schedule_*`
+  - v0.1.1
+    - Test on AzureRM 3.41.0
+    - Remove `location` validation
+    - Change default value of `redis_version` from 4 to 6
+    - Add resource `azurerm_redis_firewall_rule` which add new arguments as follows
+      - `firewall_rules`
+    - Add `azurerm_monitor_diagnostic_setting` arguments
+      - `enabled_log`
+      - `enabled_categories`
+      - `partner_solution_id`
+  - v0.1.2
+    - Test on AzureRM 3.41.0
+    - ignore change on `enabled_log` and `log_analytics_destination_type` of `azurerm_monitor_diagnostic_setting`
+  - v0.1.3
+    - Test on AzureRM 3.78.0
+    - remove these variables because `retention_policy` is deprecated in favor of `azurerm_storage_management_policy`. See [more](https://aka.ms/diagnostic_settings_log_retention).
+      - `diagnostic_settings[*].log_retention_policy`
+      - `diagnostic_settings[*].metric_retention_policy`
+  - v0.2.0
+    - Support AzureRM 4.0+
+    - Test on AzureRM 4.4.0
+    - Remove these variables because `log` is deprecated in favour of the `enabled_log`.
+    - Change `enable_non_ssl_port` to `non_ssl_port_enabled`
+    - Change `enable_authentication` to `authentication_enabled`
+
+  ## Example
+
+  ```hcl
+  {{ include "examples/main.tf" }}
+  ```
+
+  {{ .Inputs }}
+
+  {{ .Outputs }}
